@@ -10,7 +10,13 @@ const userRouter=require('./routes/user')
 const emailRouter=require('./routes/email')
 
 app.use(express.json())
-app.use(cors())
+
+app.use(cors({
+    origin : "*",
+    credentials : true,
+    methods :["GET", "POST", "DELETE", "PUT", "PATCH"],
+}))
+
 app.use('/user',userRouter)
 app.use('/mail',authenticateUser,emailRouter)
 app.get('/',(req,res)=>{
