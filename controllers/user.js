@@ -46,7 +46,7 @@ const forgotPassword = async (req, res) => {
     user.token = token
     await user.save()
     console.log(user)
-    const resetLink = `https://clinquant-kitsune-33875d.netlify.app/user/reset-password/${user._id}/${token}`
+    const resetLink = `https://incandescent-narwhal-350f77.netlify.app/user/reset-password/${user._id}/${token}`
 
     console.log(process.env.PASSWORD)
     console.log(process.env.EMAIL)
