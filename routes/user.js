@@ -5,9 +5,9 @@ const {forgotPassword,resetPassword,login,register}=require('../controllers/user
 
 
 router.post('/login', login)
-router.route('/register').post(register)
-router.route('/forgot_password').post(forgotPassword)
-router.route('/reset_password/:id/:token').post(resetPassword)
+router.post('/register', register)
+router.post('/forgot_password', forgotPassword)
+router.post('/reset_password/:id/:token', resetPassword)
 
 
 

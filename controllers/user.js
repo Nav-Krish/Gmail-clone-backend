@@ -22,8 +22,6 @@ const login = async (req, res) => {
   if (!user) {
     return res.json({message:"User not found"})
   }
-  
-  console.log(password,user.password);
 
   const isPasswordCorrect = await user.comparePassword(password)
   if (!isPasswordCorrect) {
@@ -47,9 +45,6 @@ const forgotPassword = async (req, res) => {
     await user.save()
     console.log(user)
     const resetLink = `https://incandescent-narwhal-350f77.netlify.app/user/reset-password/${user._id}/${token}`
-
-    console.log(process.env.PASSWORD)
-    console.log(process.env.EMAIL)
 
     var transporter = nodemailer.createTransport({
       service: "gmail",
